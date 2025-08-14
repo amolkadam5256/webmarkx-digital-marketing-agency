@@ -2,7 +2,7 @@ import React from 'react'
 
 const About = () => {
   return (
-    <div>
+    <div className='mt-18'>
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad eveniet vel porro voluptatibus ducimus similique consectetur aliquam, molestias eos! Accusantium magnam eligendi iste tenetur dignissimos obcaecati delectus quisquam repudiandae temporibus! Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, exercitationem? Quas fugiat asperiores nulla sint excepturi neque voluptatibus, explicabo, maxime hic voluptates nesciunt. Veritatis amet harum facilis suscipit sapiente enim!
       Deleniti odit hic ut autem fugit expedita saepe qui soluta corporis tenetur harum voluptatem, repudiandae consectetur in veniam voluptate quas, velit fuga quidem eius! Laudantium veritatis assumenda debitis suscipit ad.
       Vero harum, reiciendis aliquam quisquam asperiores expedita suscipit? Magnam velit, voluptatibus fugiat expedita pariatur blanditiis illo facilis, odit vero nam unde, aliquid modi quis sint possimus debitis enim vitae accusamus!

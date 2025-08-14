@@ -1,8 +1,16 @@
-// src/components/Navbar.jsx
 import React, { useState, useRef, useEffect } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaTwitter,
+  FaInstagram,
+  FaLinkedinIn,
+  FaChevronDown,
+  FaChevronUp,
+  FaPhone,
+  FaTimes
+} from "react-icons/fa";
 import images from "../assets/images/images";
 
 const Navbar = () => {
@@ -48,39 +56,32 @@ const Navbar = () => {
   ];
 
   const socialLinks = [
-    { icon: <FaFacebookF />, url: "https://www.facebook.com/yourbrand" },
-    { icon: <FaTwitter />, url: "https://www.twitter.com/yourbrand" },
-    { icon: <FaInstagram />, url: "https://www.instagram.com/yourbrand" },
-    { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/company/yourbrand" },
+    { icon: <FaFacebookF />, url: "https://www.facebook.com/yourbrand", color: "#1877F2" },
+    { icon: <FaTwitter />, url: "https://www.twitter.com/yourbrand", color: "#1DA1F2" },
+    { icon: <FaInstagram />, url: "https://www.instagram.com/yourbrand", color: "#E1306C" },
+    { icon: <FaLinkedinIn />, url: "https://www.linkedin.com/company/yourbrand", color: "#0077B5" },
   ];
-
-  // Helper function to get default social media brand color
-  const getSocialColor = (icon) => {
-    switch (icon.type) {
-      case FaFacebookF: return "#1877F2";
-      case FaTwitter: return "#1DA1F2";
-      case FaInstagram: return "#E1306C";
-      case FaLinkedinIn: return "#0077B5";
-      default: return "#000";
-    }
-  };
 
   return (
     <nav
       ref={navbarRef}
-      className={`fixed w-full h-auto z-50 transition-all duration-500 backdrop-blur-md bg-white`}
+      className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? "bg-white/99 shadow-lg" : "bg-white/90"}`}
     >
-      <div className="max-w-screen-xl flex items-center justify-between mx-auto p-4">
-        {/* Logo */}
-        <Link to="/" className="flex items-center space-x-3">
-          <img src={images.logo} alt="webmarkx" className="h-14" />
+      <div className="max-w-screen-xl w-full flex items-center justify-between  px-4 py-3 md:px-6 md:py-4">
+        {/* Logo with animation */}
+        <Link to="/" className="flex items-center space-x-3 group">
+          <motion.img
+            src={images.logo}
+            alt="webmarkx"
+            className="h-10 md:h-12 transition-all duration-300 "
+          />
         </Link>
 
-        {/* Hamburger */}
-        <button
+
+        {/* Hamburger with animation */}
+        <motion.button
           onClick={() => setIsOpen(!isOpen)}
-          type="button"
-          className="inline-flex items-center p-2 w-10 h-10 justify-center text-black rounded-lg md:hidden hover:bg-gray-200 focus:outline-none"
+          className="inline-flex items-center my-auto p-2 w-full h-10 justify-end text-black rounded-lg md:hidden focus:outline-none"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path
@@ -90,34 +91,41 @@ const Navbar = () => {
               d={isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16"}
             />
           </svg>
-        </button>
+        </motion.button>
 
         {/* Desktop Menu */}
-        <ul className="hidden md:flex space-x-8 font-medium">
+        <ul className="hidden md:flex items-center space-x-6 lg:space-x-8 font-medium">
           {menuItems.map((item, index) => (
-            <li key={index} className="relative">
+            <li key={index} className="relative group">
               {!item.dropdown ? (
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    `transition duration-300 ${isActive
-                      ? "text-red-600 border-b-2 border-red-600"
-                      : "text-black hover:text-red-600"
+                    `relative px-2 py-1 transition-all duration-300 ${isActive
+                      ? "text-red-600 font-semibold"
+                      : "text-gray-800 hover:text-red-600"
                     }`
                   }
                 >
                   {item.name}
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-red-600 transition-all duration-300 ${location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"}`}></span>
                 </NavLink>
               ) : (
-                <>
+                <div className="relative">
                   <button
                     onClick={() => setIsServicesOpen(!isServicesOpen)}
-                    className={`flex items-center hover:text-red-600 transition ${location.pathname.includes("services")
-                        ? "text-red-600 border-b-2 border-red-600"
-                        : "text-black"
+                    className={`flex items-center px-2 py-1 transition-all ${location.pathname.includes("services")
+                      ? "text-red-600 font-semibold"
+                      : "text-gray-800 hover:text-red-600"
                       }`}
                   >
-                    {item.name} <span className="ml-2">&#9662;</span>
+                    {item.name}
+                    <motion.span
+                      animate={{ rotate: isServicesOpen ? 180 : 0 }}
+                      className="ml-1"
+                    >
+                      {isServicesOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
+                    </motion.span>
                   </button>
                   <AnimatePresence>
                     {isServicesOpen && (
@@ -125,13 +133,13 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute left-0 top-full mt-2 w-48 bg-white shadow-lg rounded-md"
+                        className="absolute left-0 top-full mt-2 w-48 bg-white shadow-xl rounded-lg overflow-hidden z-50"
                       >
                         {item.dropdown.map((drop, idx) => (
                           <li key={idx}>
                             <NavLink
                               to={drop.path}
-                              className="block py-2 px-4 text-black hover:text-red-600 transition"
+                              className="block py-3 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 transition"
                             >
                               {drop.name}
                             </NavLink>
@@ -140,61 +148,149 @@ const Navbar = () => {
                       </motion.ul>
                     )}
                   </AnimatePresence>
-                </>
+                </div>
               )}
             </li>
           ))}
-
-          {/* Social Icons */}
-          <li className="flex space-x-3">
-            {socialLinks.map((social, i) => (
-              <a
-                key={i}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="transition transform hover:text-red-600 hover:scale-110"
-                style={{ color: getSocialColor(social.icon) }}
-              >
-                {social.icon}
-              </a>
-            ))}
-          </li>
         </ul>
+
+
+
+
+        {/* Enhanced Desktop Contact Number */}
+        <a href="tel:+971505761914">
+
+        <motion.div
+          className="hidden md:flex items-center space-x-6"
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <motion.div
+            className="relative group"
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+          >
+            {/* Main button with gradient and pulse effect */}
+            <div className="hidden lg:flex items-center bg-gradient-to-r from-[#2F2D73] to-red-600 text-white px-6 py-3  shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden">
+              {/* Animated background elements */}
+              <motion.div
+                className="absolute inset-0 bg-gradient-to-r from-red-600 to-[#2F2D73] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              />
+
+              {/* Pulsing ring animation */}
+              <motion.div
+                className="absolute inset-0 rounded-full border-2 border-white/30"
+                animate={{
+                  scale: [1, 1.2, 1.4],
+                  opacity: [0.5, 0.3, 0]
+                }}
+                transition={{
+                  duration: 2.5,
+                  repeat: Infinity,
+                  ease: "easeOut"
+                }}
+              />
+
+              {/* Phone icon with subtle animation */}
+              <motion.div
+                animate={{
+                  rotate: [0, 5, -5, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Infinity,
+                  repeatDelay: 4
+                }}
+                className="relative z-10"
+              >
+                <FaPhone className="mr-3 text-lg" />
+              </motion.div>
+
+              {/* Phone number with creative typography */}
+              <a
+                href="tel:+971505761914"
+                className="relative z-10 font-semibold tracking-wide flex items-center"
+              >
+                <span className="mr-1">+971</span>
+                <span className="font-bold">50 576 1914</span>
+                {/* Animated underline */}
+                <motion.span
+                  className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"
+                  initial={{ width: 0 }}
+                  whileHover={{ width: "100%" }}
+                />
+              </a>
+
+              {/* Floating "CALL NOW" tag */}
+              <motion.span
+                className="absolute -right-3 -top-3 bg-white text-[#2F2D73] text-xs font-bold px-2 py-1 rounded-full shadow-md flex items-center"
+                initial={{ opacity: 0, y: 10, scale: 0.8 }}
+                animate={{
+                  opacity: [0, 1, 0],
+                  y: [10, 0, -5],
+                  scale: [0.8, 1, 0.9]
+                }}
+                transition={{
+                  duration: 3,
+                  repeat: Infinity,
+                  repeatDelay: 2
+                }}
+              >
+
+              </motion.span>
+            </div>
+
+          </motion.div>
+        </motion.div>
+      </a>
 
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
             <motion.div
-              initial={{ y: "-100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "-100%" }}
-              transition={{ duration: 0.45, ease: "easeInOut" }}
-              className="fixed top-0 left-0 w-full h-auto bg-white z-50 p-6"
+              initial={{ opacity: 0, x: '100%' }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: '100%' }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="fixed inset-0 bg-white z-50 pt-4 px-6 pb-5 md:hidden overflow-y-auto "
             >
-              {/* Close Header */}
-              <div className="flex justify-between items-center mb-6">
-                <img src={images.logo} alt="webmarkx" className="h-12" />
+              {/* Mobile Header with Logo and Close Button */}
+              <div className="flex justify-between items-center py-4 border-b border-gray-200">
+                <Link to="/" onClick={() => setIsOpen(false)}>
+                  <img src={images.logo} alt="webmarkx" className="h-12" />
+                </Link>
                 <button
                   onClick={() => setIsOpen(false)}
-                  className="text-black text-3xl font-bold hover:text-red-600 transition"
+                  className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition"
                 >
-                  ✕
+                  <FaTimes className="text-gray-700" />
                 </button>
               </div>
 
+
               {/* Mobile Menu Items */}
-              <motion.ul className="space-y-6">
+              <motion.ul
+                className="space-y-4"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
                 {menuItems.map((item, index) => (
-                  <li key={index}>
+                  <motion.li
+                    key={index}
+                    initial={{ x: -20 }}
+                    animate={{ x: 0 }}
+                    transition={{ delay: 0.1 * index }}
+                  >
                     {!item.dropdown ? (
                       <NavLink
                         to={item.path}
                         onClick={() => setIsOpen(false)}
                         className={({ isActive }) =>
-                          `block text-lg font-medium transition ${isActive
-                            ? "text-red-600 font-semibold"
-                            : "text-black hover:text-red-600"
+                          `block text-xl font-medium py-3 px-4 rounded-lg transition ${isActive
+                            ? "text-white bg-red-500 font-semibold"
+                            : "text-gray-800 hover:bg-gray-100"
                           }`
                         }
                       >
@@ -204,9 +300,12 @@ const Navbar = () => {
                       <>
                         <button
                           onClick={() => setIsServicesOpen(!isServicesOpen)}
-                          className="block w-full text-left text-lg font-medium text-black hover:text-red-600 transition"
+                          className={`flex items-center justify-between w-full text-xl font-medium py-3 px-4 rounded-lg transition ${isServicesOpen ? "bg-gray-100" : "hover:bg-gray-100"}`}
                         >
-                          {item.name} <span className="ml-2">&#9662;</span>
+                          {item.name}
+                          <motion.span animate={{ rotate: isServicesOpen ? 180 : 0 }}>
+                            {isServicesOpen ? <FaChevronUp /> : <FaChevronDown />}
+                          </motion.span>
                         </button>
                         <AnimatePresence>
                           {isServicesOpen && (
@@ -215,41 +314,53 @@ const Navbar = () => {
                               animate={{ height: "auto", opacity: 1 }}
                               exit={{ height: 0, opacity: 0 }}
                               transition={{ duration: 0.3 }}
-                              className="pl-4 mt-2 space-y-2"
+                              className="pl-6 space-y-2 mt-2"
                             >
                               {item.dropdown.map((drop, idx) => (
-                                <li key={idx}>
+                                <motion.li
+                                  key={idx}
+                                  initial={{ opacity: 0, x: -10 }}
+                                  animate={{ opacity: 1, x: 0 }}
+                                  transition={{ delay: 0.1 * idx }}
+                                >
                                   <NavLink
                                     to={drop.path}
                                     onClick={() => setIsOpen(false)}
-                                    className="block text-black hover:text-red-600"
+                                    className={({ isActive }) =>
+                                      `block py-2 text-lg px-4 rounded-lg transition ${isActive
+                                        ? "text-white bg-red-400"
+                                        : "text-gray-700 hover:bg-gray-100"
+                                      }`
+                                    }
                                   >
                                     {drop.name}
                                   </NavLink>
-                                </li>
+                                </motion.li>
                               ))}
                             </motion.ul>
                           )}
                         </AnimatePresence>
                       </>
                     )}
-                  </li>
+                  </motion.li>
                 ))}
               </motion.ul>
 
+
               {/* Mobile Social Icons */}
-              <div className="flex space-x-6 mt-10">
-                {socialLinks.map((social, i) => (
-                  <a
-                    key={i}
+              <div className="flex justify-center space-x-6 mt-8 pt-6 border-t border-gray-200">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={index}
                     href={social.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="transition transform hover:text-red-600 hover:scale-125"
-                    style={{ color: getSocialColor(social.icon) }}
+                    className="p-3 rounded-full bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
+                    whileHover={{ scale: 1.1, backgroundColor: social.color, color: "white" }}
+                    whileTap={{ scale: 0.9 }}
                   >
                     {social.icon}
-                  </a>
+                  </motion.a>
                 ))}
               </div>
             </motion.div>

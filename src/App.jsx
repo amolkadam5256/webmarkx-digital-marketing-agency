@@ -28,6 +28,7 @@ const App = () => {
   if (loading) return <Loader />;
 
   return (
+    <>
     <div className="relative bg-white dark:bg-gray-900 text-gray-800 dark:text-white min-h-screen flex flex-col overflow-x-hidden">
       {/* Navbar */}
       <Navbar />
@@ -55,6 +56,7 @@ const App = () => {
       {/* Footer */}
       <Footer />
     </div>
+    </>
   );
 };
 
