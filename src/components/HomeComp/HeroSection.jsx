@@ -160,7 +160,7 @@ const HeroSection = () => {
                         const x = radius * Math.cos(angleRad);
                         const y = radius * Math.sin(angleRad);
                         const delay = index * 0.1;
-                        const iconSize = isMobile ? 'w-8 h-8' : 'w-10 h-10 md:w-12 md:h-12';
+                        const iconSize = isMobile ? 'w-8 h-8' : 'w-10 h-10 md:w-10 md:h-10';
 
                         return (
                             <a
@@ -169,7 +169,7 @@ const HeroSection = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label={item.name}
-                                className={`absolute ${iconSize} rounded-full flex items-center justify-center text-white text-lg z-30 hover:scale-125 ring-2 ring-white/20 shadow-lg transition-all duration-300 hover:shadow-xl group`}
+                                className={`absolute ${iconSize} rounded-full flex items-center justify-center text-white text-lg z-30 hover:scale-120 ring-2 ring-white/20 shadow-lg transition-all duration-300 hover:shadow-xl group`}
                                 style={{
                                     left: `calc(50% + ${x}px)`,
                                     top: `calc(50% + ${y}px)`,

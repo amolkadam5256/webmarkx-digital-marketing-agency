@@ -67,16 +67,15 @@ const Navbar = () => {
       ref={navbarRef}
       className={`fixed w-full z-50 transition-all duration-500 ${scrolled ? "bg-white/99 shadow-lg" : "bg-white/90"}`}
     >
-      <div className="max-w-screen-xl w-full flex items-center justify-between  px-4 py-3 md:px-6 md:py-4">
+      <div className="max-w-screen-xl w-full flex items-center justify-between px-4 py-3 md:px-6 md:py-4">
         {/* Logo with animation */}
         <Link to="/" className="flex items-center space-x-3 group">
           <motion.img
             src={images.logo}
             alt="webmarkx"
-            className="h-10 md:h-12 transition-all duration-300 "
+            className="h-10 md:h-12 transition-all duration-300"
           />
         </Link>
-
 
         {/* Hamburger with animation */}
         <motion.button
@@ -101,23 +100,27 @@ const Navbar = () => {
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    `relative px-2 py-1 transition-all duration-300 ${isActive
-                      ? "text-red-600 font-semibold"
-                      : "text-gray-800 hover:text-red-600"
+                    `relative px-2 py-1 transition-all duration-300 ${
+                      isActive
+                        ? "text-red-600 font-semibold"
+                        : "text-gray-800 hover:text-red-600"
                     }`
                   }
                 >
                   {item.name}
-                  <span className={`absolute bottom-0 left-0 h-0.5 bg-red-600 transition-all duration-300 ${location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"}`}></span>
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-red-600 transition-all duration-300 ${
+                    location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+                  }`}></span>
                 </NavLink>
               ) : (
                 <div className="relative">
                   <button
                     onClick={() => setIsServicesOpen(!isServicesOpen)}
-                    className={`flex items-center px-2 py-1 transition-all ${location.pathname.includes("services")
-                      ? "text-red-600 font-semibold"
-                      : "text-gray-800 hover:text-red-600"
-                      }`}
+                    className={`flex items-center px-2 py-1 transition-all ${
+                      location.pathname.includes("services")
+                        ? "text-red-600 font-semibold"
+                        : "text-gray-800 hover:text-red-600"
+                    }`}
                   >
                     {item.name}
                     <motion.span
@@ -154,12 +157,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-
-
-
-        {/* Enhanced Desktop Contact Number */}
-        <a href="tel:+971505761914">
-
+        {/* Enhanced Desktop Contact Number - Fixed nested anchor issue */}
         <motion.div
           className="hidden md:flex items-center space-x-6"
           initial={{ opacity: 0, x: 20 }}
@@ -172,7 +170,10 @@ const Navbar = () => {
             whileTap={{ scale: 0.97 }}
           >
             {/* Main button with gradient and pulse effect */}
-            <div className="hidden lg:flex items-center bg-gradient-to-r from-[#2F2D73] to-red-600 text-white px-6 py-3  shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden">
+            <a
+              href="tel:+971505761914"
+              className="hidden lg:flex items-center bg-gradient-to-r from-[#2F2D73] to-red-600 text-white px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden relative"
+            >
               {/* Animated background elements */}
               <motion.div
                 className="absolute inset-0 bg-gradient-to-r from-red-600 to-[#2F2D73] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
@@ -208,10 +209,7 @@ const Navbar = () => {
               </motion.div>
 
               {/* Phone number with creative typography */}
-              <a
-                href="tel:+971505761914"
-                className="relative z-10 font-semibold tracking-wide flex items-center"
-              >
+              <span className="relative z-10 font-semibold tracking-wide flex items-center">
                 <span className="mr-1">+971</span>
                 <span className="font-bold">50 576 1914</span>
                 {/* Animated underline */}
@@ -220,7 +218,7 @@ const Navbar = () => {
                   initial={{ width: 0 }}
                   whileHover={{ width: "100%" }}
                 />
-              </a>
+              </span>
 
               {/* Floating "CALL NOW" tag */}
               <motion.span
@@ -237,13 +235,10 @@ const Navbar = () => {
                   repeatDelay: 2
                 }}
               >
-
               </motion.span>
-            </div>
-
+            </a>
           </motion.div>
         </motion.div>
-      </a>
 
         {/* Mobile Menu */}
         <AnimatePresence>
@@ -253,7 +248,7 @@ const Navbar = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-0 bg-white z-50 pt-4 px-6 pb-5 md:hidden overflow-y-auto "
+              className="fixed inset-0 bg-white z-50 pt-4 px-6 pb-5 md:hidden overflow-y-auto"
             >
               {/* Mobile Header with Logo and Close Button */}
               <div className="flex justify-between items-center py-4 border-b border-gray-200">
@@ -267,7 +262,6 @@ const Navbar = () => {
                   <FaTimes className="text-gray-700" />
                 </button>
               </div>
-
 
               {/* Mobile Menu Items */}
               <motion.ul
@@ -288,9 +282,10 @@ const Navbar = () => {
                         to={item.path}
                         onClick={() => setIsOpen(false)}
                         className={({ isActive }) =>
-                          `block text-xl font-medium py-3 px-4 rounded-lg transition ${isActive
-                            ? "text-white bg-red-500 font-semibold"
-                            : "text-gray-800 hover:bg-gray-100"
+                          `block text-xl font-medium py-3 px-4 rounded-lg transition ${
+                            isActive
+                              ? "text-white bg-red-500 font-semibold"
+                              : "text-gray-800 hover:bg-gray-100"
                           }`
                         }
                       >
@@ -300,7 +295,9 @@ const Navbar = () => {
                       <>
                         <button
                           onClick={() => setIsServicesOpen(!isServicesOpen)}
-                          className={`flex items-center justify-between w-full text-xl font-medium py-3 px-4 rounded-lg transition ${isServicesOpen ? "bg-gray-100" : "hover:bg-gray-100"}`}
+                          className={`flex items-center justify-between w-full text-xl font-medium py-3 px-4 rounded-lg transition ${
+                            isServicesOpen ? "bg-gray-100" : "hover:bg-gray-100"
+                          }`}
                         >
                           {item.name}
                           <motion.span animate={{ rotate: isServicesOpen ? 180 : 0 }}>
@@ -327,9 +324,10 @@ const Navbar = () => {
                                     to={drop.path}
                                     onClick={() => setIsOpen(false)}
                                     className={({ isActive }) =>
-                                      `block py-2 text-lg px-4 rounded-lg transition ${isActive
-                                        ? "text-white bg-red-400"
-                                        : "text-gray-700 hover:bg-gray-100"
+                                      `block py-2 text-lg px-4 rounded-lg transition ${
+                                        isActive
+                                          ? "text-white bg-red-400"
+                                          : "text-gray-700 hover:bg-gray-100"
                                       }`
                                     }
                                   >
@@ -345,7 +343,6 @@ const Navbar = () => {
                   </motion.li>
                 ))}
               </motion.ul>
-
 
               {/* Mobile Social Icons */}
               <div className="flex justify-center space-x-6 mt-8 pt-6 border-t border-gray-200">
