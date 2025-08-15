@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FiCalendar, FiUser, FiMessageSquare, FiArrowRight, FiSearch } from 'react-icons/fi';
 import { motion } from 'framer-motion';
+import Images from '../../assets/images/images';
 
 const BlogSection = () => {
     const [activeCategory, setActiveCategory] = useState('All');
     const [sortOrder, setSortOrder] = useState('newest');
     const [searchQuery, setSearchQuery] = useState('');
+    const [showAllPosts, setShowAllPosts] = useState(false);
 
     const blogPosts = [
         // Power of Marketing (3 posts)
@@ -18,7 +20,7 @@ const BlogSection = () => {
             date: "March 15, 2024",
             author: "webmarkx",
             comments: 5,
-            image: "/images/marketing-power.jpg",
+            image: Images.DigitalMak1,
             readTime: "5 min read",
             slug: "power-of-marketing",
             alt: "Marketing strategies boosting business growth"
@@ -31,7 +33,7 @@ const BlogSection = () => {
             date: "November 8, 2023",
             author: "webmarkx",
             comments: 3,
-            image: "/images/marketing-metrics.jpg",
+            image: Images.DigitalMak2,
             readTime: "6 min read",
             slug: "marketing-metrics",
             alt: "Dashboard showing marketing analytics"
@@ -44,7 +46,7 @@ const BlogSection = () => {
             date: "June 22, 2023",
             author: "webmarkx",
             comments: 7,
-            image: "/images/omnichannel.jpg",
+            image: Images.DigitalMak3,
             readTime: "7 min read",
             slug: "omnichannel-marketing",
             alt: "Multiple devices showing connected marketing channels"
@@ -59,7 +61,7 @@ const BlogSection = () => {
             date: "February 28, 2024",
             author: "webmarkx",
             comments: 3,
-            image: "/images/social-marketing.jpg",
+            image: Images.DigitalMak1,
             readTime: "4 min read",
             slug: "social-media-marketing",
             alt: "Social media icons on smartphone"
@@ -72,7 +74,7 @@ const BlogSection = () => {
             date: "September 14, 2023",
             author: "webmarkx",
             comments: 8,
-            image: "/images/instagram-algo.jpg",
+            image: Images.DigitalMak2,
             readTime: "5 min read",
             slug: "instagram-algorithm",
             alt: "Instagram app interface on phone"
@@ -85,7 +87,7 @@ const BlogSection = () => {
             date: "April 5, 2023",
             author: "webmarkx",
             comments: 4,
-            image: "/images/linkedin-marketing.jpg",
+            image: Images.DigitalMak3,
             readTime: "6 min read",
             slug: "linkedin-marketing",
             alt: "LinkedIn profile dashboard"
@@ -100,7 +102,7 @@ const BlogSection = () => {
             date: "January 18, 2024",
             author: "webmarkx",
             comments: 7,
-            image: "/images/content-marketing.jpg",
+            image: Images.DigitalMak1,
             readTime: "6 min read",
             slug: "content-marketing",
             alt: "Person writing content strategy on whiteboard"
@@ -113,7 +115,7 @@ const BlogSection = () => {
             date: "August 30, 2023",
             author: "webmarkx",
             comments: 3,
-            image: "/images/content-strategy.jpg",
+            image: Images.DigitalMak2,
             readTime: "5 min read",
             slug: "content-strategy-2024",
             alt: "Content calendar planning"
@@ -126,7 +128,7 @@ const BlogSection = () => {
             date: "May 12, 2023",
             author: "webmarkx",
             comments: 6,
-            image: "/images/video-content.jpg",
+            image: Images.DigitalMak3,
             readTime: "7 min read",
             slug: "video-content",
             alt: "Video recording setup with camera"
@@ -141,7 +143,7 @@ const BlogSection = () => {
             date: "October 5, 2023",
             author: "webmarkx",
             comments: 4,
-            image: "/images/social-marketing-2.jpg",
+            image: Images.DigitalMak1,
             readTime: "5 min read",
             slug: "social-marketing",
             alt: "People engaging on social media"
@@ -154,7 +156,7 @@ const BlogSection = () => {
             date: "March 22, 2023",
             author: "webmarkx",
             comments: 5,
-            image: "/images/cause-marketing.jpg",
+            image: Images.DigitalMak2,
             readTime: "6 min read",
             slug: "cause-marketing",
             alt: "Hands forming heart shape"
@@ -169,7 +171,7 @@ const BlogSection = () => {
             date: "December 10, 2023",
             author: "webmarkx",
             comments: 2,
-            image: "/images/web-dev.jpg",
+            image: Images.DigitalMak3,
             readTime: "7 min read",
             slug: "web-development",
             alt: "Web developer coding on laptop"
@@ -182,7 +184,7 @@ const BlogSection = () => {
             date: "July 8, 2022",
             author: "webmarkx",
             comments: 9,
-            image: "/images/pwa.jpg",
+            image: Images.DigitalMak1,
             readTime: "8 min read",
             slug: "progressive-web-apps",
             alt: "Mobile phone showing PWA features"
@@ -197,7 +199,7 @@ const BlogSection = () => {
             date: "November 20, 2023",
             author: "webmarkx",
             comments: 9,
-            image: "/images/seo.jpg",
+            image: Images.DigitalMak2,
             readTime: "8 min read",
             slug: "seo-optimization",
             alt: "SEO ranking factors diagram"
@@ -210,7 +212,7 @@ const BlogSection = () => {
             date: "April 15, 2022",
             author: "webmarkx",
             comments: 4,
-            image: "/images/voice-search.jpg",
+            image: Images.DigitalMak3,
             readTime: "6 min read",
             slug: "voice-search-seo",
             alt: "Smart speaker with voice search interface"
@@ -225,7 +227,7 @@ const BlogSection = () => {
             date: "September 5, 2023",
             author: "webmarkx",
             comments: 4,
-            image: "/images/ppc.jpg",
+            image: Images.DigitalMak1,
             readTime: "5 min read",
             slug: "ppc-marketing",
             alt: "Google Ads dashboard on computer"
@@ -238,7 +240,7 @@ const BlogSection = () => {
             date: "February 18, 2022",
             author: "webmarkx",
             comments: 7,
-            image: "/images/facebook-ads.jpg",
+            image: Images.DigitalMak2,
             readTime: "7 min read",
             slug: "facebook-ads",
             alt: "Facebook ads manager interface"
@@ -253,7 +255,7 @@ const BlogSection = () => {
             date: "August 12, 2023",
             author: "webmarkx",
             comments: 6,
-            image: "/images/app-dev.jpg",
+            image: Images.DigitalMak3,
             readTime: "6 min read",
             slug: "app-development",
             alt: "Mobile app development process"
@@ -266,7 +268,7 @@ const BlogSection = () => {
             date: "May 20, 2023",
             author: "webmarkx",
             comments: 8,
-            image: "/images/flutter-react.jpg",
+            image: Images.DigitalMak1,
             readTime: "8 min read",
             slug: "flutter-vs-react",
             alt: "Flutter and React Native logos"
@@ -279,7 +281,7 @@ const BlogSection = () => {
             date: "October 10, 2021",
             author: "webmarkx",
             comments: 3,
-            image: "/images/aso.jpg",
+            image: Images.DigitalMak2,
             readTime: "5 min read",
             slug: "app-store-optimization",
             alt: "App store ranking factors"
@@ -303,6 +305,9 @@ const BlogSection = () => {
         const dateB = new Date(b.date);
         return sortOrder === 'newest' ? dateB - dateA : dateA - dateB;
     });
+
+    // Determine which posts to display
+    const displayedPosts = showAllPosts ? sortedPosts : sortedPosts.slice(0, 5);
 
     const categories = ['All', 'Power of Marketing', 'Social Media Marketing',
         'Content Marketing', 'Social Marketing', 'Web Development',
@@ -344,7 +349,7 @@ const BlogSection = () => {
     };
 
     return (
-        <section className="py-16 bg-gradient-to-b from-gray-50 to-white" aria-label="Blog section">
+        <section className="py-16 bg-white" aria-label="Blog section">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <motion.div
@@ -441,72 +446,102 @@ const BlogSection = () => {
                 </motion.div>
 
                 {/* Blog Posts Grid */}
-                {sortedPosts.length > 0 ? (
-                    <motion.div
-                        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-                        variants={containerVariants}
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true, margin: "0px 0px -100px 0px" }}
-                    >
-                        {sortedPosts.map(post => (
-                            <motion.article
-                                key={post.id}
-                                variants={itemVariants}
-                                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
-                                whileHover="hover"
-                                aria-labelledby={`post-${post.id}-title`}
-                            >
-                                <div className="relative overflow-hidden h-48">
-                                    <img
-                                        src={post.image}
-                                        alt={post.alt}
-                                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                                        loading="lazy"
-                                    />
-                                    <div className="absolute bottom-0 left-0 bg-[#2F2D73] text-white px-3 py-1 text-xs font-semibold">
-                                        {post.category}
-                                    </div>
-                                    <div className="absolute top-0 right-0 bg-black/50 text-white px-2 py-1 text-xs m-2 rounded">
-                                        {post.readTime}
-                                    </div>
-                                </div>
-
-                                <div className="p-5 sm:p-6">
-                                    <div className="flex flex-wrap items-center gap-3 text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4">
-                                        <span className="flex items-center gap-1">
-                                            <FiCalendar className="text-[#FF4D4D]" aria-hidden="true" />
-                                            <time dateTime={new Date(post.date).toISOString()}>{post.date}</time>
-                                        </span>
-                                        <span className="flex items-center gap-1">
-                                            <FiUser className="text-[#FF4D4D]" aria-hidden="true" />
-                                            <span>{post.author}</span>
-                                        </span>
-                                        <span className="flex items-center gap-1">
-                                            <FiMessageSquare className="text-[#FF4D4D]" aria-hidden="true" />
-                                            <span>{post.comments} Comments</span>
-                                        </span>
+                {displayedPosts.length > 0 ? (
+                    <>
+                        <motion.div
+                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+                        >
+                            {displayedPosts.map(post => (
+                                <motion.article
+                                    key={post.id}
+                                    variants={itemVariants}
+                                    className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group"
+                                    whileHover="hover"
+                                    aria-labelledby={`post-${post.id}-title`}
+                                >
+                                    <div className="relative overflow-hidden h-48">
+                                        <img
+                                            src={post.image}
+                                            alt={post.alt}
+                                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                                            loading="lazy"
+                                        />
+                                        <div className="absolute bottom-0 left-0 bg-[#2F2D73] text-white px-3 py-1 text-xs font-semibold">
+                                            {post.category}
+                                        </div>
+                                        <div className="absolute top-0 right-0 bg-black/50 text-white px-2 py-1 text-xs m-2 rounded">
+                                            {post.readTime}
+                                        </div>
                                     </div>
 
-                                    <h2 id={`post-${post.id}-title`} className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
-                                        <Link to={`/blog/${post.slug}`} className="hover:text-[#2F2D73] focus:outline-none focus:ring-2 focus:ring-[#2F2D73] focus:ring-offset-2 rounded">
-                                            {post.title}
+                                    <div className="p-5 sm:p-6">
+                                        <div className="flex flex-wrap items-center gap-3 text-gray-500 text-xs sm:text-sm mb-3 sm:mb-4">
+                                            <span className="flex items-center gap-1">
+                                                <FiCalendar className="text-[#FF4D4D]" aria-hidden="true" />
+                                                <time dateTime={new Date(post.date).toISOString()}>{post.date}</time>
+                                            </span>
+                                            <span className="flex items-center gap-1">
+                                                <FiUser className="text-[#FF4D4D]" aria-hidden="true" />
+                                                <span>{post.author}</span>
+                                            </span>
+                                            <span className="flex items-center gap-1">
+                                                <FiMessageSquare className="text-[#FF4D4D]" aria-hidden="true" />
+                                                <span>{post.comments} Comments</span>
+                                            </span>
+                                        </div>
+
+                                        <h2 id={`post-${post.id}-title`} className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-3">
+                                            <Link to={`/blog/${post.slug}`} className="hover:text-[#2F2D73] focus:outline-none focus:ring-2 focus:ring-[#2F2D73] focus:ring-offset-2 rounded">
+                                                {post.title}
+                                            </Link>
+                                        </h2>
+                                        <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-5">{post.excerpt}</p>
+
+                                        <Link
+                                            to={`/blog/${post.slug}`}
+                                            className="inline-flex items-center gap-2 text-[#2F2D73] font-medium group-hover:text-[#FF4D4D] transition-colors focus:outline-none focus:ring-2 focus:ring-[#2F2D73] focus:ring-offset-2 rounded"
+                                            aria-label={`Read more about ${post.title}`}
+                                        >
+                                            Read Full Blog
+                                            <FiArrowRight className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
                                         </Link>
-                                    </h2>
-                                    <p className="text-gray-600 text-sm sm:text-base mb-4 sm:mb-5">{post.excerpt}</p>
+                                    </div>
+                                </motion.article>
+                            ))}
+                        </motion.div>
 
-                                    <Link
-                                        to={`/blog/${post.slug}`}
-                                        className="inline-flex items-center gap-2 text-[#2F2D73] font-medium group-hover:text-[#FF4D4D] transition-colors focus:outline-none focus:ring-2 focus:ring-[#2F2D73] focus:ring-offset-2 rounded"
-                                        aria-label={`Read more about ${post.title}`}
+                        {/* Show More/Show Less Button */}
+                        {sortedPosts.length > 5 && (
+                            <motion.div
+                                className="text-center mt-10 sm:mt-12"
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.4 }}
+                                viewport={{ once: true }}
+                            >
+                                <button
+                                    onClick={() => setShowAllPosts(!showAllPosts)}
+                                    className="inline-flex items-center px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-[#2F2D73] to-[#FF4D4D] text-white font-medium rounded-lg hover:shadow-lg transition-all focus:outline-none focus:ring-2 focus:ring-[#2F2D73] focus:ring-offset-2"
+                                    aria-label={showAllPosts ? "Show fewer blog posts" : "Show all blog posts"}
+                                >
+                                    {showAllPosts ? 'Show Less' : 'Show All'}
+                                    <svg
+                                        className={`w-4 h-4 sm:w-5 sm:h-5 ml-2 transition-transform ${showAllPosts ? 'rotate-180' : ''}`}
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                        aria-hidden="true"
                                     >
-                                        Read Full Blog
-                                        <FiArrowRight className="transition-transform group-hover:translate-x-1" aria-hidden="true" />
-                                    </Link>
-                                </div>
-                            </motion.article>
-                        ))}
-                    </motion.div>
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                                    </svg>
+                                </button>
+                            </motion.div>
+                        )}
+                    </>
                 ) : (
                     <motion.div
                         className="text-center py-12"
@@ -526,8 +561,8 @@ const BlogSection = () => {
                     </motion.div>
                 )}
 
-                {/* View More Button */}
-                {sortedPosts.length > 0 && (
+                {/* View All Blogs Button */}
+                {/* {sortedPosts.length > 0 && (
                     <motion.div
                         className="text-center mt-10 sm:mt-12"
                         initial={{ opacity: 0 }}
@@ -552,7 +587,7 @@ const BlogSection = () => {
                             </svg>
                         </Link>
                     </motion.div>
-                )}
+                )} */}
             </div>
         </section>
     );
