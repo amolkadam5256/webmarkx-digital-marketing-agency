@@ -5,14 +5,14 @@ import { Link } from "react-router-dom";
 
 const OurBenefits = () => {
   const benefits = {
-    title: "WHY CHOOSE US",
-    heading: "Amplify Your Digital Presence",
-    subtitle: "Innovative solutions that drive measurable results and growth",
+    title: "OUR BENIFITS",
+    heading: "GET MORE TRAFFIC ON WEBSITE",
+    subtitle: "Discover Our Benefits: Result-driven, Data-backed, Success-oriented",
     stats: [
       { name: "Lead Generation", value: 90, color: "#FF4D4D" },
-      { name: "Customer Engagement", value: 100, color: "#2F2D73" },
-      { name: "ROI Improvement", value: 95, color: "#FF4D4D" },
-      { name: "Cost Efficiency", value: 85, color: "#2F2D73" },
+      { name: "Customer Interaction", value: 100, color: "#2F2D73" },
+      { name: "Continuous Growth", value: 95, color: "#FF4D4D" },
+      { name: "Cost-effective Solutions", value: 85, color: "#2F2D73" },
     ],
     features: [
       {
