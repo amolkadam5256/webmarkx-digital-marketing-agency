@@ -6,6 +6,7 @@ import OurBenefits from '../components/HomeComp/OurBenefits';
 import StatsBanner from '../components/HomeComp/StatsBanner';
 import Testimonials from '../components/HomeComp/Testimonials';
 import BlogSection from '../components/HomeComp/BlogSection';
+import CTASection from '../components/HomeComp/CTASection';
 
 const Home = () => {
   return (
@@ -18,6 +19,7 @@ const Home = () => {
         <StatsBanner/>
         <Testimonials/>
         <BlogSection/>
+        <CTASection/> 
       </main>
     </>
   )
