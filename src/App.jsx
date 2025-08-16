@@ -15,6 +15,14 @@ import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
 
+
+import AppDevelopment from './components/ServicesPage/AppDevelopment';
+import ContentMarketing from './components/ServicesPage/ContentMarketing';
+import PpcAdvertising from './components/ServicesPage/PpcAdvertising';
+import SeoOptimization from './components/ServicesPage/SeoOptimization';
+import SocialMediaMarketing from './components/ServicesPage/SocialMediaMarketing';
+import WebDevelopment from './components/ServicesPage/WebDevelopment';
+
 const App = () => {
   const location = useLocation();
   const [loading, setLoading] = useState(true);
@@ -46,7 +54,13 @@ const App = () => {
           <Routes location={location} key={location.pathname}>
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
-            <Route path="/services/*" element={<Services />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/services/content-marketing" element={<ContentMarketing />} />
+            <Route path="/services/social-media-marketing" element={<SocialMediaMarketing />} />
+            <Route path="/services/web-development" element={<WebDevelopment />} />
+            <Route path="/services/seo-optimization" element={<SeoOptimization />} />
+            <Route path="/services/ppc-advertising" element={<PpcAdvertising />} />
+            <Route path="/services/app-development" element={<AppDevelopment />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>

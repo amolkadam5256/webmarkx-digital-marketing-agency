@@ -1,16 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { FiArrowRight, FiArrowLeft, FiCheckCircle } from 'react-icons/fi';
+import { 
+  FiArrowRight, 
+  FiArrowLeft, 
+  FiCheckCircle,
+  FiZap,
+  FiSettings,
+  FiUsers,
+  FiAward,
+  FiHeart,       // Alternative for partnership
+  FiHeadphones
+} from 'react-icons/fi';
 
 const WhyChooseUs = () => {
   const [activeFeature, setActiveFeature] = useState(0);
   const [isAutoRotating, setIsAutoRotating] = useState(true);
 
-
   const features = [
     {
       title: "Innovative Solutions",
-      icon: "💡",
+      icon: <FiZap className="text-2xl" />,
       description: "Cutting-edge digital marketing strategies that leverage AI, automation, and creative thinking to put you ahead of competitors.",
       benefits: [
         "AI-powered analytics",
@@ -21,7 +30,7 @@ const WhyChooseUs = () => {
     },
     {
       title: "Customized Approach",
-      icon: "✂️",
+      icon: <FiSettings className="text-2xl" />,
       description: "Tailored solutions designed specifically for your business goals, audience, and industry challenges.",
       benefits: [
         "Personalized strategy sessions",
@@ -32,7 +41,7 @@ const WhyChooseUs = () => {
     },
     {
       title: "Experienced Team",
-      icon: "👥",
+      icon: <FiUsers className="text-2xl" />,
       description: "Digital natives with 12+ years experience who eat, sleep, and breathe digital marketing excellence.",
       benefits: [
         "Certified professionals",
@@ -43,7 +52,7 @@ const WhyChooseUs = () => {
     },
     {
       title: "Proven Track Record",
-      icon: "📈",
+      icon: <FiAward className="text-2xl" />,
       description: "Trusted by 500+ brands across industries to deliver measurable ROI and business growth.",
       benefits: [
         "Case studies available",
@@ -54,7 +63,7 @@ const WhyChooseUs = () => {
     },
     {
       title: "Collaborative Partnership",
-      icon: "🤝",
+      icon: <FiHeart className="text-2xl" />,  // Changed from FiHandshake to FiHeart
       description: "We become an extension of your team, working closely to align with your vision and objectives.",
       benefits: [
         "Dedicated account managers",
@@ -65,7 +74,7 @@ const WhyChooseUs = () => {
     },
     {
       title: "Continuous Support",
-      icon: "🛟",
+      icon: <FiHeadphones className="text-2xl" />,
       description: "Ongoing optimization, monthly reporting, and 24/7 support to ensure your success never stops.",
       benefits: [
         "24/7 technical support",
@@ -140,7 +149,9 @@ const WhyChooseUs = () => {
                     }`}
                 >
                   <div className="flex items-center space-x-3">
-                    <span className="text-2xl">{feature.icon}</span>
+                    <div className="text-[#2F2D73]">
+                      {feature.icon}
+                    </div>
                     <div>
                       <h3 className="text-base sm:text-lg font-bold">{feature.title}</h3>
                       <p className="text-xs sm:text-sm mt-1 opacity-80">
@@ -205,7 +216,9 @@ const WhyChooseUs = () => {
                       }`}
                   >
                     <div className="flex items-center space-x-4">
-                      <span className="text-2xl">{feature.icon}</span>
+                      <div className="text-[#2F2D73]">
+                        {feature.icon}
+                      </div>
                       <div>
                         <h3 className="text-lg font-bold">{feature.title}</h3>
                         <p className="text-sm mt-1 opacity-80">

@@ -45,7 +45,17 @@ const ContactSection = () => {
         {
             question: "What's included in your monthly maintenance plans?",
             answer: "Our maintenance plans include regular updates, security monitoring, performance optimization, backups, and technical support to keep your website running smoothly."
+        },
+        {
+            question: "Can you help with branding and design?",
+            answer: "Absolutely! We offer complete branding solutions including logo design, brand identity creation, UI/UX design, and visual storytelling to make your business stand out."
+        },
+        {
+            question: "Do you provide analytics and reporting?",
+            answer: "Yes, we provide detailed analytics and performance reports to track progress, measure ROI, and continuously optimize your campaigns for maximum results."
         }
+
+
     ];
 
     const toggleFAQ = (index) => {
