@@ -14,6 +14,8 @@ import Speeker from './Speeker.jpg';
 import Team from './Team.jpg';
 import Team2 from './Team2.jpg';
 import rocket from './rocket.png';
+import WhoWeAre from './WhoWeAre.jpg';
+import OurMission from './OurMission.jpg';
 
 // Export all images
 const Images = {
@@ -30,6 +32,8 @@ const Images = {
   Team,
   Team2,
   rocket,
+  WhoWeAre,
+  OurMission,
 };
 
 export default Images;
