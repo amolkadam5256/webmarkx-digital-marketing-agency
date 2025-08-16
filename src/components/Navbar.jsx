@@ -17,6 +17,7 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [isHoveringServices, setIsHoveringServices] = useState(false);
   const navbarRef = useRef(null);
   const location = useLocation();
 
@@ -113,9 +114,19 @@ const Navbar = () => {
                   }`}></span>
                 </NavLink>
               ) : (
-                <div className="relative">
-                  <button
-                    onClick={() => setIsServicesOpen(!isServicesOpen)}
+                <div 
+                  className="relative"
+                  onMouseEnter={() => {
+                    setIsHoveringServices(true);
+                    setIsServicesOpen(true);
+                  }}
+                  onMouseLeave={() => {
+                    setIsHoveringServices(false);
+                    setIsServicesOpen(false);
+                  }}
+                >
+                  <Link
+                    to={item.path}
                     className={`flex items-center px-2 py-1 transition-all ${
                       location.pathname.includes("services")
                         ? "text-red-600 font-semibold"
@@ -129,9 +140,9 @@ const Navbar = () => {
                     >
                       {isServicesOpen ? <FaChevronUp size={12} /> : <FaChevronDown size={12} />}
                     </motion.span>
-                  </button>
+                  </Link>
                   <AnimatePresence>
-                    {isServicesOpen && (
+                    {(isServicesOpen || isHoveringServices) && (
                       <motion.ul
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -157,7 +168,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* Enhanced Desktop Contact Number - Fixed nested anchor issue */}
+        {/* Enhanced Desktop Contact Number */}
         <motion.div
           className="hidden md:flex items-center space-x-6"
           initial={{ opacity: 0, x: 20 }}
@@ -169,73 +180,14 @@ const Navbar = () => {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
           >
-            {/* Main button with gradient and pulse effect */}
             <a
               href="tel:+971505761914"
               className="hidden lg:flex items-center bg-gradient-to-r from-[#2F2D73] to-red-600 text-white px-6 py-3 shadow-lg hover:shadow-xl transition-all duration-500 overflow-hidden relative"
             >
-              {/* Animated background elements */}
-              <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-red-600 to-[#2F2D73] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-              />
-
-              {/* Pulsing ring animation */}
-              <motion.div
-                className="absolute inset-0 rounded-full border-2 border-white/30"
-                animate={{
-                  scale: [1, 1.2, 1.4],
-                  opacity: [0.5, 0.3, 0]
-                }}
-                transition={{
-                  duration: 2.5,
-                  repeat: Infinity,
-                  ease: "easeOut"
-                }}
-              />
-
-              {/* Phone icon with subtle animation */}
-              <motion.div
-                animate={{
-                  rotate: [0, 5, -5, 0],
-                }}
-                transition={{
-                  duration: 2,
-                  repeat: Infinity,
-                  repeatDelay: 4
-                }}
-                className="relative z-10"
-              >
-                <FaPhone className="mr-3 text-lg" />
-              </motion.div>
-
-              {/* Phone number with creative typography */}
-              <span className="relative z-10 font-semibold tracking-wide flex items-center">
-                <span className="mr-1">+971</span>
-                <span className="font-bold">50 576 1914</span>
-                {/* Animated underline */}
-                <motion.span
-                  className="absolute bottom-0 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full"
-                  initial={{ width: 0 }}
-                  whileHover={{ width: "100%" }}
-                />
+              <FaPhone className="mr-3 text-lg" />
+              <span className="font-semibold tracking-wide">
+                +971 <span className="font-bold">50 576 1914</span>
               </span>
-
-              {/* Floating "CALL NOW" tag */}
-              <motion.span
-                className="absolute -right-3 -top-3 bg-white text-[#2F2D73] text-xs font-bold px-2 py-1 rounded-full shadow-md flex items-center"
-                initial={{ opacity: 0, y: 10, scale: 0.8 }}
-                animate={{
-                  opacity: [0, 1, 0],
-                  y: [10, 0, -5],
-                  scale: [0.8, 1, 0.9]
-                }}
-                transition={{
-                  duration: 3,
-                  repeat: Infinity,
-                  repeatDelay: 2
-                }}
-              >
-              </motion.span>
             </a>
           </motion.div>
         </motion.div>
@@ -248,7 +200,7 @@ const Navbar = () => {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: '100%' }}
               transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed inset-0 bg-white z-50 pt-4 px-6 pb-5 md:hidden overflow-y-auto"
+              className="fixed inset-0 bg-white z-50 pt-4 px-6 pb-5 md:hidden overflow-y-auto no-scrollbar"
             >
               {/* Mobile Header with Logo and Close Button */}
               <div className="flex justify-between items-center py-4 border-b border-gray-200">
@@ -292,18 +244,33 @@ const Navbar = () => {
                         {item.name}
                       </NavLink>
                     ) : (
-                      <>
-                        <button
-                          onClick={() => setIsServicesOpen(!isServicesOpen)}
-                          className={`flex items-center justify-between w-full text-xl font-medium py-3 px-4 rounded-lg transition ${
-                            isServicesOpen ? "bg-gray-100" : "hover:bg-gray-100"
-                          }`}
-                        >
-                          {item.name}
-                          <motion.span animate={{ rotate: isServicesOpen ? 180 : 0 }}>
-                            {isServicesOpen ? <FaChevronUp /> : <FaChevronDown />}
-                          </motion.span>
-                        </button>
+                      <div className="relative">
+                        <div className="flex items-center justify-between">
+                          <NavLink
+                            to={item.path}
+                            onClick={() => setIsOpen(false)}
+                            className={({ isActive }) =>
+                              `block text-xl font-medium py-3 px-4 rounded-lg transition flex-grow ${
+                                isActive
+                                  ? "text-white bg-red-500 font-semibold"
+                                  : "text-gray-800 hover:bg-gray-100"
+                              }`
+                            }
+                          >
+                            {item.name}
+                          </NavLink>
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setIsServicesOpen(!isServicesOpen);
+                            }}
+                            className="p-3 rounded-lg hover:bg-gray-200 transition-colors"
+                          >
+                            <motion.span animate={{ rotate: isServicesOpen ? 180 : 0 }}>
+                              {isServicesOpen ? <FaChevronUp /> : <FaChevronDown />}
+                            </motion.span>
+                          </button>
+                        </div>
                         <AnimatePresence>
                           {isServicesOpen && (
                             <motion.ul
@@ -338,7 +305,7 @@ const Navbar = () => {
                             </motion.ul>
                           )}
                         </AnimatePresence>
-                      </>
+                      </div>
                     )}
                   </motion.li>
                 ))}
