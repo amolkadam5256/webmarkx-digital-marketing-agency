@@ -47,9 +47,12 @@ const Navbar = () => {
       name: "Services",
       path: "/services",
       dropdown: [
+        { name: "Content Marketing", path: "/services/content-marketing" },
+        { name: "Social Media Marketing", path: "/services/social-media-marketing" },
         { name: "Web Development", path: "/services/web-development" },
-        { name: "Digital Marketing", path: "/services/digital-marketing" },
         { name: "SEO Optimization", path: "/services/seo-optimization" },
+        { name: "PPC Advertising", path: "/services/ppc-advertising" },
+        { name: "App Development", path: "/services/app-development" },
       ],
     },
     { name: "Pricing", path: "/pricing" },
@@ -101,20 +104,18 @@ const Navbar = () => {
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>
-                    `relative px-2 py-1 transition-all duration-300 ${
-                      isActive
-                        ? "text-red-600 font-semibold"
-                        : "text-gray-800 hover:text-red-600"
+                    `relative px-2 py-0 transition-all duration-300 ${isActive
+                      ? "text-red-600 font-semibold"
+                      : "text-gray-800 hover:text-red-600"
                     }`
                   }
                 >
                   {item.name}
-                  <span className={`absolute bottom-0 left-0 h-0.5 bg-red-600 transition-all duration-300 ${
-                    location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
-                  }`}></span>
+                  <span className={`absolute bottom-0 left-0 h-0.5 bg-red-600 transition-all duration-300 ${location.pathname === item.path ? "w-full" : "w-0 group-hover:w-full"
+                    }`}></span>
                 </NavLink>
               ) : (
-                <div 
+                <div
                   className="relative"
                   onMouseEnter={() => {
                     setIsHoveringServices(true);
@@ -127,11 +128,10 @@ const Navbar = () => {
                 >
                   <Link
                     to={item.path}
-                    className={`flex items-center px-2 py-1 transition-all ${
-                      location.pathname.includes("services")
+                    className={`flex items-center px-2 py-1 transition-all ${location.pathname.includes("services")
                         ? "text-red-600 font-semibold"
                         : "text-gray-800 hover:text-red-600"
-                    }`}
+                      }`}
                   >
                     {item.name}
                     <motion.span
@@ -147,13 +147,13 @@ const Navbar = () => {
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="absolute left-0 top-full mt-2 w-48 bg-white shadow-xl rounded-lg overflow-hidden z-50"
+                        className="absolute left-0 top-full mt-2 w-52 bg-white shadow-xl rounded-lg overflow-hidden z-50"
                       >
                         {item.dropdown.map((drop, idx) => (
                           <li key={idx}>
                             <NavLink
                               to={drop.path}
-                              className="block py-3 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 transition"
+                              className="block py-2 px-4 text-gray-700 hover:bg-red-50 hover:text-red-600 transition"
                             >
                               {drop.name}
                             </NavLink>
@@ -234,10 +234,9 @@ const Navbar = () => {
                         to={item.path}
                         onClick={() => setIsOpen(false)}
                         className={({ isActive }) =>
-                          `block text-xl font-medium py-3 px-4 rounded-lg transition ${
-                            isActive
-                              ? "text-white bg-red-500 font-semibold"
-                              : "text-gray-800 hover:bg-gray-100"
+                          `block text-xl font-medium py-3 px-4 rounded-lg transition ${isActive
+                            ? "text-white bg-red-500 font-semibold"
+                            : "text-gray-800 hover:bg-gray-100"
                           }`
                         }
                       >
@@ -250,10 +249,9 @@ const Navbar = () => {
                             to={item.path}
                             onClick={() => setIsOpen(false)}
                             className={({ isActive }) =>
-                              `block text-xl font-medium py-3 px-4 rounded-lg transition flex-grow ${
-                                isActive
-                                  ? "text-white bg-red-500 font-semibold"
-                                  : "text-gray-800 hover:bg-gray-100"
+                              `block text-xl font-medium py-3 px-4 rounded-lg transition flex-grow ${isActive
+                                ? "text-white bg-red-500 font-semibold"
+                                : "text-gray-800 hover:bg-gray-100"
                               }`
                             }
                           >
@@ -291,10 +289,9 @@ const Navbar = () => {
                                     to={drop.path}
                                     onClick={() => setIsOpen(false)}
                                     className={({ isActive }) =>
-                                      `block py-2 text-lg px-4 rounded-lg transition ${
-                                        isActive
-                                          ? "text-white bg-red-400"
-                                          : "text-gray-700 hover:bg-gray-100"
+                                      `block py-2 text-lg px-4 rounded-lg transition ${isActive
+                                        ? "text-white bg-red-400"
+                                        : "text-gray-700 hover:bg-gray-100"
                                       }`
                                     }
                                   >

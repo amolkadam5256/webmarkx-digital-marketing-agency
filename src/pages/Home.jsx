@@ -11,15 +11,15 @@ import CTASection from '../components/HomeComp/CTASection';
 const Home = () => {
   return (
     <>
-      <main className='mt-1'>
+      <main className=''>
         <HomeSection />
         <HomeAboutUs />
         <HomeServiceSection />
-        <OurBenefits/>
-        <StatsBanner/>
-        <Testimonials/>
-        <BlogSection/>
-        <CTASection/> 
+        <OurBenefits />
+        <StatsBanner />
+        <Testimonials />
+        <BlogSection />
+        <CTASection />
       </main>
     </>
   )

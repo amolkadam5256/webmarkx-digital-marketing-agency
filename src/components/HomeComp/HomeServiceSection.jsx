@@ -18,7 +18,8 @@ const HomeServiceSection = () => {
             description: "Engaging storytelling that builds brand awareness and fosters business growth",
             highlights: ["Strategic Narratives", "Audience Engagement", "Conversion-Focused"],
             color: "bg-[#2F2D73]",
-            iconBg: "from-[#2F2D73] to-[#45438F]"
+            iconBg: "from-[#2F2D73] to-[#45438F]",
+            path: "/services/content-marketing"
         },
         {
             icon: <FiTrendingUp className="text-4xl" />,
@@ -26,7 +27,8 @@ const HomeServiceSection = () => {
             description: "Amplify brand influence through engaging connections and powerful strategies",
             highlights: ["Community Building", "Viral Campaigns", "Influencer Partnerships"],
             color: "bg-red-600",
-            iconBg: "from-red-600 to-red-700"
+            iconBg: "from-red-600 to-red-700",
+            path: "/services/social-media-marketing"
         },
         {
             icon: <FiCode className="text-4xl" />,
@@ -34,7 +36,8 @@ const HomeServiceSection = () => {
             description: "Crafting impactful websites with engaging design and powerful functionality",
             highlights: ["Responsive Design", "Blazing Fast", "SEO-Ready"],
             color: "bg-[#2F2D73]",
-            iconBg: "from-[#2F2D73] to-[#45438F]"
+            iconBg: "from-[#2F2D73] to-[#45438F]",
+            path: "/services/web-development"
         },
         {
             icon: <FiSearch className="text-4xl" />,
@@ -42,7 +45,8 @@ const HomeServiceSection = () => {
             description: "Boosting online visibility with strategic tactics and keyword targeting",
             highlights: ["Technical Audits", "Content Strategy", "Rank Tracking"],
             color: "bg-red-600",
-            iconBg: "from-red-600 to-red-700"
+            iconBg: "from-red-600 to-red-700",
+            path: "/services/seo-optimization"
         },
         {
             icon: <FiDollarSign className="text-4xl" />,
@@ -50,7 +54,8 @@ const HomeServiceSection = () => {
             description: "Driving targeted traffic with strategic campaigns and powerful ad placements",
             highlights: ["Google Ads", "Social Ads", "ROI Maximization"],
             color: "bg-[#2F2D73]",
-            iconBg: "from-[#2F2D73] to-[#45438F]"
+            iconBg: "from-[#2F2D73] to-[#45438F]",
+            path: "/services/ppc-advertising"
         },
         {
             icon: <FiSmartphone className="text-4xl" />,
@@ -58,12 +63,13 @@ const HomeServiceSection = () => {
             description: "Creating impactful mobile solutions with powerful functionality",
             highlights: ["iOS & Android", "Cross-Platform", "Performance Optimized"],
             color: "bg-red-600",
-            iconBg: "from-red-600 to-red-700"
+            iconBg: "from-red-600 to-red-700",
+            path: "/services/app-development"
         }
     ];
 
     return (
-        <section className="py-16 md:py-24 bg-white relative overflow-hidden">
+        <section className="py-16 md:py-24 bg-white relative overflow-hidden" id="ServicesSection">
             {/* Decorative elements */}
             <div className="absolute top-0 left-0 w-32 h-32 bg-[#2F2D73] opacity-10 rounded-full -translate-x-20 -translate-y-20"></div>
             <div className="absolute bottom-0 right-0 w-64 h-64 bg-red-600 opacity-10 rounded-full translate-x-32 translate-y-32"></div>
@@ -142,13 +148,15 @@ const HomeServiceSection = () => {
                                 </div>
 
                                 <div className="text-center px-6">
-                                    <motion.button
-                                        whileHover={{ scale: 1.05 }}
-                                        whileTap={{ scale: 0.95 }}
-                                        className={`px-6 py-2  ${service.color === 'bg-red-600' ? 'bg-[#2F2D73] hover:bg-[#1E1D4E]' : 'bg-red-600 hover:bg-red-700'} text-white font-medium transition-colors shadow-md w-full max-w-xs mx-auto`}
-                                    >
-                                        Explore Service
-                                    </motion.button>
+                                    <Link to={service.path}>
+                                        <motion.button
+                                            whileHover={{ scale: 1.05 }}
+                                            whileTap={{ scale: 0.95 }}
+                                            className={`px-6 py-2  ${service.color === 'bg-red-600' ? 'bg-[#2F2D73] hover:bg-[#1E1D4E]' : 'bg-red-600 hover:bg-red-700'} text-white font-medium transition-colors shadow-md w-full max-w-xs mx-auto`}
+                                        >
+                                            Explore Service
+                                        </motion.button>
+                                    </Link>
                                 </div>
                             </div>
                         </motion.div>

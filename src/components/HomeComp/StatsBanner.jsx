@@ -15,38 +15,38 @@ const StatsBanner = () => {
     }, []);
 
     const stats = [
-        { 
-            icon: <FiAward className="text-3xl" />, 
-            label: "Successful Campaigns", 
-            value: 514, 
+        {
+            icon: <FiAward className="text-3xl" />,
+            label: "Successful Campaigns",
+            value: 514,
             suffix: "+",
             color: "text-yellow-400"
         },
-        { 
-            icon: <FiBriefcase className="text-3xl" />, 
-            label: "Industry Experience", 
-            value: 12, 
+        {
+            icon: <FiBriefcase className="text-3xl" />,
+            label: "Industry Experience",
+            value: 12,
             suffix: "+",
             color: "text-yellow-400"
         },
-        { 
-            icon: <FiTrendingUp className="text-3xl" />, 
-            label: "Conversion Optimization", 
-            value: 95, 
+        {
+            icon: <FiTrendingUp className="text-3xl" />,
+            label: "Conversion Optimization",
+            value: 95,
             suffix: "%",
             color: "text-yellow-400"
         },
-        { 
-            icon: <FiShield className="text-3xl" />, 
-            label: "Data Privacy Assurance", 
-            value: 100, 
+        {
+            icon: <FiShield className="text-3xl" />,
+            label: "Data Privacy Assurance",
+            value: 100,
             suffix: "%",
             color: "text-yellow-400"
         },
     ];
 
     return (
-        <section className="relative overflow-hidden min-h-[90vh] flex items-center justify-center px-4 py-0 bg-black text-white">
+        <section className="relative overflow-hidden  flex items-center justify-center px-4 py-0 bg-black text-white">
             {/* Background Image */}
             <div className="absolute inset-0 bg-cover bg-center opacity-70 z-0 transition-transform duration-[4000ms] group-hover:scale-105">
                 <img

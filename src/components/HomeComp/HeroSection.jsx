@@ -31,7 +31,7 @@ const HeroSection = () => {
     const radius = isMobile ? 100 : 200;
 
     return (
-        <main className="text-black bg-white min-h-screen overflow-hidden relative">
+        <main className="text-black bg-white  overflow-hidden relative">
             {/* Animated background elements */}
             <div className="absolute inset-0 overflow-hidden">
                 {[...Array(isMobile ? 15 : 25)].map((_, i) => (
