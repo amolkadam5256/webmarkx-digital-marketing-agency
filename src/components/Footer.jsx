@@ -78,7 +78,7 @@ const socialLinks = [
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          access_key: "735efc9c-d698-420a-86ee-72b8a78779e4", // Replace with your Web3Forms access key
+          access_key: "a2511336-0d67-4ff3-863d-6feee061652f", // Replace with your Web3Forms access key
           email: email,
           subject: "Newsletter Subscription",
           from_name: "WebMarkx Footer Newsletter",

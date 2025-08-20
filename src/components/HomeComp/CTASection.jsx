@@ -15,7 +15,7 @@ const CTASection = () => {
     
     // Web3Forms submission
     const formData = new FormData();
-    formData.append('access_key', '735efc9c-d698-420a-86ee-72b8a78779e4'); // Your actual access key
+    formData.append('access_key', 'a2511336-0d67-4ff3-863d-6feee061652f'); // Your actual access key
     formData.append('email', email);
     formData.append('from_name', 'Marketing Newsletter Subscription');
     formData.append('subject', 'New Newsletter Subscriber');
