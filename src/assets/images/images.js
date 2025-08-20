@@ -16,9 +16,13 @@ import Team2 from './Team2.jpg';
 import rocket from './rocket.png';
 import WhoWeAre from './WhoWeAre.jpg';
 import OurMission from './OurMission.jpg';
+import customer_service from './customer_service.png';
+import customer_service2 from './customer_service2.jpg';
 
 // Export all images
 const Images = {
+  customer_service2,
+  customer_service,
   DigitalMak1,
   DigitalMak2,
   DigitalMak3,

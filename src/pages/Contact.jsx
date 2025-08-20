@@ -4,8 +4,6 @@ import ContactForm from '../components/ContactComp/ContactForm';
 import  ProcessSection from '../components/AboutComp/ProcessSection';
 import WhyChooseUs from '../components/AboutComp/WhyChooseUs';
 
-import CTASection from '../components/HomeComp/CTASection';
-
 const Contact = () => {
   return (
     <>
@@ -13,7 +11,6 @@ const Contact = () => {
         <ContactForm/>
         <ProcessSection/>
         <WhyChooseUs/>
-        <CTASection/> 
       </main>
     </>
   )

@@ -1,6 +1,6 @@
 import React from 'react'
 import ServiceHeroSection from '../components/ServicesComp/ServiceHeroSection';
-import HomeAboutUs from '../components/HomeComp/HomeAboutUs';
+import HomeServiceSection from '../components/HomeComp/HomeServiceSection';
 import StatsBanner from '../components/HomeComp/StatsBanner';
 import Testimonials from '../components/HomeComp/Testimonials';
 import CTASection from '../components/HomeComp/CTASection';
@@ -11,7 +11,7 @@ const Services = () => {
     <>
       <main className=''>
         <ServiceHeroSection />
-        <HomeAboutUs/>
+        <HomeServiceSection />
         <StatsBanner/>
         <Testimonials/>
         <CTASection/> 
