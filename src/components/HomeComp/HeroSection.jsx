@@ -18,12 +18,12 @@ import { Link } from 'react-router-dom';
 import Images from '../../assets/images/images';
 
 const socialIcons = [
-    { icon: <FaFacebookF />, bg: '#1877f2', angle: 0, url: 'https://facebook.com/webmarkx', name: 'Facebook' },
-    { icon: <FaInstagram />, bg: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #962fbf, #4f5bd5)', angle: 60, url: 'https://instagram.com/webmarkx', name: 'Instagram' },
+    { icon: <FaFacebookF />, bg: '#1877f2', angle: 0, url: 'https://www.facebook.com/webmarkxx', name: 'Facebook' },
+    { icon: <FaInstagram />, bg: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #962fbf, #4f5bd5)', angle: 60, url: 'https://www.instagram.com/webmarkx', name: 'Instagram' },
     { icon: <FaTwitter />, bg: '#1da1f2', angle: 120, url: 'https://twitter.com/webmarkx', name: 'Twitter' },
     { icon: <FaLinkedinIn />, bg: '#0077b5', angle: 180, url: 'https://linkedin.com/company/webmarkx', name: 'LinkedIn' },
     { icon: <FaYoutube />, bg: '#ff0000', angle: 240, url: 'https://youtube.com/webmarkx', name: 'YouTube' },
-    { icon: <FaWhatsapp />, bg: '#25d366', angle: 300, url: 'https://wa.me/webmarkx', name: 'WhatsApp' },
+    { icon: <FaWhatsapp />, bg: '#25d366', angle: 300, url: 'https://web.whatsapp.com/send?text=&phone=971505761914', name: 'WhatsApp' },
 ];
 
 const HeroSection = () => {

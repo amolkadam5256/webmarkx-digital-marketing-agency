@@ -46,7 +46,7 @@ const BlogSection = () => {
             date: "June 22, 2023",
             author: "webmarkx",
             comments: 7,
-            image: Images.DigitalMak3,
+            image: Images.marketing_strategies1,
             readTime: "7 min read",
             slug: "omnichannel-marketing",
             alt: "Multiple devices showing connected marketing channels"
@@ -61,7 +61,7 @@ const BlogSection = () => {
             date: "February 28, 2024",
             author: "webmarkx",
             comments: 3,
-            image: Images.DigitalMak1,
+            image: Images.SocialMedia1,
             readTime: "4 min read",
             slug: "social-media-marketing",
             alt: "Social media icons on smartphone"
@@ -74,7 +74,7 @@ const BlogSection = () => {
             date: "September 14, 2023",
             author: "webmarkx",
             comments: 8,
-            image: Images.DigitalMak2,
+            image: Images.Power_Marketing1,
             readTime: "5 min read",
             slug: "instagram-algorithm",
             alt: "Instagram app interface on phone"
@@ -102,7 +102,7 @@ const BlogSection = () => {
             date: "January 18, 2024",
             author: "webmarkx",
             comments: 7,
-            image: Images.DigitalMak1,
+            image: Images.SEO1,
             readTime: "6 min read",
             slug: "content-marketing",
             alt: "Person writing content strategy on whiteboard"
@@ -115,7 +115,7 @@ const BlogSection = () => {
             date: "August 30, 2023",
             author: "webmarkx",
             comments: 3,
-            image: Images.DigitalMak2,
+            image: Images.Power_Marketing2,
             readTime: "5 min read",
             slug: "content-strategy-2024",
             alt: "Content calendar planning"
@@ -171,7 +171,7 @@ const BlogSection = () => {
             date: "December 10, 2023",
             author: "webmarkx",
             comments: 2,
-            image: Images.DigitalMak3,
+            image: Images.WEB_DEV1,
             readTime: "7 min read",
             slug: "web-development",
             alt: "Web developer coding on laptop"
@@ -184,7 +184,7 @@ const BlogSection = () => {
             date: "July 8, 2022",
             author: "webmarkx",
             comments: 9,
-            image: Images.DigitalMak1,
+            image: Images.WEB_DEV2,
             readTime: "8 min read",
             slug: "progressive-web-apps",
             alt: "Mobile phone showing PWA features"
@@ -199,7 +199,7 @@ const BlogSection = () => {
             date: "November 20, 2023",
             author: "webmarkx",
             comments: 9,
-            image: Images.DigitalMak2,
+            image: Images.SEO1,
             readTime: "8 min read",
             slug: "seo-optimization",
             alt: "SEO ranking factors diagram"
@@ -212,7 +212,7 @@ const BlogSection = () => {
             date: "April 15, 2022",
             author: "webmarkx",
             comments: 4,
-            image: Images.DigitalMak3,
+            image: Images.PCP1,
             readTime: "6 min read",
             slug: "voice-search-seo",
             alt: "Smart speaker with voice search interface"
@@ -227,7 +227,7 @@ const BlogSection = () => {
             date: "September 5, 2023",
             author: "webmarkx",
             comments: 4,
-            image: Images.DigitalMak1,
+            image: Images.PCP1,
             readTime: "5 min read",
             slug: "ppc-marketing",
             alt: "Google Ads dashboard on computer"
@@ -240,7 +240,7 @@ const BlogSection = () => {
             date: "February 18, 2022",
             author: "webmarkx",
             comments: 7,
-            image: Images.DigitalMak2,
+            image: Images.Power_Marketing2,
             readTime: "7 min read",
             slug: "facebook-ads",
             alt: "Facebook ads manager interface"
@@ -255,7 +255,7 @@ const BlogSection = () => {
             date: "August 12, 2023",
             author: "webmarkx",
             comments: 6,
-            image: Images.DigitalMak3,
+            image: Images.AppDEV1,
             readTime: "6 min read",
             slug: "app-development",
             alt: "Mobile app development process"
@@ -268,7 +268,7 @@ const BlogSection = () => {
             date: "May 20, 2023",
             author: "webmarkx",
             comments: 8,
-            image: Images.DigitalMak1,
+            image: Images.SocialMedia1,
             readTime: "8 min read",
             slug: "flutter-vs-react",
             alt: "Flutter and React Native logos"
@@ -281,7 +281,7 @@ const BlogSection = () => {
             date: "October 10, 2021",
             author: "webmarkx",
             comments: 3,
-            image: Images.DigitalMak2,
+            image: Images.Power_Marketing2,
             readTime: "5 min read",
             slug: "app-store-optimization",
             alt: "App store ranking factors"

@@ -191,19 +191,11 @@ const HomeServiceSection = () => {
                                 whileTap={{ scale: 0.97 }}
                                 className="px-8 py-3 bg-white text-[#2F2D73] rounded-full font-bold hover:bg-gray-100 transition-all shadow-lg hover:shadow-xl"
                             >
-                                <Link to="/free-strategy-session">
+                                <Link to="/contact">
                                     Get Free Strategy Session
                                 </Link>
                             </motion.button>
-                            <motion.button
-                                whileHover={{ scale: 1.03 }}
-                                whileTap={{ scale: 0.97 }}
-                                className="px-8 py-3 bg-transparent border-2 border-white text-white rounded-full font-bold hover:bg-white/10 transition-all"
-                            >
-                                <Link to="/case-studies">
-                                    View Case Studies
-                                </Link>
-                            </motion.button>
+                            
                         </div>
                     </div>
                 </motion.div>

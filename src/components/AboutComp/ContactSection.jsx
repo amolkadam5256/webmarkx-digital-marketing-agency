@@ -229,7 +229,7 @@ const ContactSection = () => {
                                         name="service"
                                         value={formData.service}
                                         onChange={handleChange}
-                                        className="w-full pl-4 pr-10 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-white/50 focus:outline-none appearance-none"
+                                        className="w-full pl-4 pr-10 py-3 rounded-lg bg-white/10 border border-white/20 focus:border-white/50 focus:outline-none appearance-none focus:text-black text-white" 
                                         required
                                     >
                                         <option value="">Select a Service</option>
