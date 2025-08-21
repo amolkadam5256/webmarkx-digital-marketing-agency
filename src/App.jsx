@@ -14,6 +14,7 @@ import Contact from "./pages/Contact";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
+import ErrorPage from "./components/ErrorPage";
 
 
 import AppDevelopment from './components/ServicesPage/AppDevelopment';
@@ -22,6 +23,8 @@ import PpcAdvertising from './components/ServicesPage/PpcAdvertising';
 import SeoOptimization from './components/ServicesPage/SeoOptimization';
 import SocialMediaMarketing from './components/ServicesPage/SocialMediaMarketing';
 import WebDevelopment from './components/ServicesPage/WebDevelopment';
+
+import PrivacyPolicies from './components/PrivacyPolicies';
 
 const App = () => {
   const location = useLocation();
@@ -63,6 +66,8 @@ const App = () => {
             <Route path="/services/app-development" element={<AppDevelopment />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policies" element={<PrivacyPolicies />} />
+            <Route path="*" element={<ErrorPage />} />
           </Routes>
         </motion.div>
       </AnimatePresence>

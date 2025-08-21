@@ -280,13 +280,13 @@ const socialLinks = [
             className="flex space-x-6"
           >
             <Link 
-              to="/privacy-policy" 
+              to="/privacy-policies" 
               className="text-gray-600 dark:text-gray-300 hover:text-red-500 transition-colors duration-300"
             >
               Privacy Policy
             </Link>
             <Link 
-              to="/terms" 
+              to="/privacy-policies" 
               className="text-gray-600 dark:text-gray-300 hover:text-red-500 transition-colors duration-300"
             >
               Terms & Conditions
