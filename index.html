@@ -26,14 +26,55 @@
   <!-- <link rel="icon" href="/public/Favicon.png" type="image/x-icon"> -->
   <link rel="icon" href="/public/Favicon2.png" type="image/x-icon">
 
-
 </head>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+  var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+
+  Tawk_API.onLoad = function () {
+    // Custom name (removes company info)
+    Tawk_API.setAttributes({
+      'name': 'GrowthBot 🚀',
+      'email': '',
+      'hash': ''
+    }, function (error) { });
+
+    // Custom welcome message
+    Tawk_API.addEvent('custom_welcome', {
+      'message': '👋 Welcome! Ready to scale your business growth with AI & marketing strategies?'
+    });
+  };
+
+  (function () {
+    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/68a98418d1e983192c19cba3/1j3b2nvvt';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  })();
+</script>
+<style>
+  /* Custom Chat Widget Styling */
+  iframe[src*="tawk.to"] {
+    border: 2px solid #ff0000 !important;
+    /* Red border */
+    border-radius: 12px !important;
+  }
+
+  .tawk-min-container,
+  .tawk-chat-header,
+  .tawk-button {
+    background-color: #ff0000 !important;
+    /* Red theme */
+  }
+</style>
+<!--End of Tawk.to Script-->
 
 <body>
   <div id="root"></div>
   <script type="module" src="/src/main.jsx"></script>
-
 </body>
-
 
 </html>
